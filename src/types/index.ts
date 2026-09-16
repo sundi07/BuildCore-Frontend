@@ -941,6 +941,36 @@ export interface Receivable {
 }
 
 export interface Employee {
+  id: number;
+  companyId: number;
+  departmentId?: number | null | undefined;
+  employeeCode: string;
+  firstName: string;
+  middleName?: string | null | undefined;
+  lastName?: string | null | undefined;
+  email?: string | null | undefined;
+  mobile?: string | null | undefined;
+  joiningDate?: string | null | undefined;
+  designation?: string | null | undefined;
+  status?: string | null | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+}
+
+export interface EmployeeRequest {
+  companyId: number;
+  departmentId?: number | null | undefined;
+  employeeCode: string;
+  firstName: string;
+  middleName?: string | null | undefined;
+  lastName?: string | null | undefined;
+  email?: string | null | undefined;
+  mobile?: string | null | undefined;
+  joiningDate?: string | null | undefined;
+  designation?: string | null | undefined;
+}
+
+export interface MockEmployee {
   id: string;
   empId: string;
   name: string;

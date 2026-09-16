@@ -10,7 +10,7 @@ import type {
   Customer,
   DocumentFile,
   Dpr,
-  Employee,
+  MockEmployee,
   FollowUp,
   Grn,
   Indent,
@@ -2420,7 +2420,7 @@ export const trialBalance = chartOfAccounts.flatMap((g) =>
 
 /* -------------------------------- Payroll -------------------------------- */
 
-export const employees: Employee[] = Array.from({ length: 34 }, (_, i) => ({
+export const employees: MockEmployee[] = Array.from({ length: 34 }, (_, i) => ({
   id: `emp-${i + 1}`,
   empId: `EMP${String(1040 + i)}`,
   name: `${pick(firstNames)} ${pick(lastNames)}`,
@@ -2455,7 +2455,7 @@ export const employees: Employee[] = Array.from({ length: 34 }, (_, i) => ({
     "Nashik Site",
   ]),
   grossSalary: between(32000, 185000, 500),
-  status: pick(["Active", "Active", "Active", "On Leave"] as Employee["status"][]),
+  status: pick(["Active", "Active", "Active", "On Leave"] as MockEmployee["status"][]),
 }));
 
 export const attendance = employees.slice(0, 20).map((e, i) => ({

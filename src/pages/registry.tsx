@@ -20,6 +20,7 @@ import { ComparativeStatementPage } from "@/pages/procurement/ComparativeStateme
 import { CompanyPage } from "@/pages/CompanyPage";
 import { DepartmentsPage } from "@/pages/DepartmentsPage";
 import { SitesPage } from "@/pages/SitesPage";
+import { EmployeesPage } from "@/pages/EmployeesPage";
 import { presets } from "@/pages/presets";
 
 export function resolvePage(slug: string): ReactNode {
@@ -36,6 +37,14 @@ export function resolvePage(slug: string): ReactNode {
   }
   if (key === "admin/sites" || key === "admin/site" || key === "sites") {
     return <SitesPage />;
+  }
+  if (
+    key === "hr/employees" ||
+    key === "hr/employee-cards" ||
+    key === "employees" ||
+    key === "admin/employees"
+  ) {
+    return <EmployeesPage />;
   }
   if (key === "projects") return <ProjectsPage />;
   if (key.startsWith("projects/")) {

@@ -3,10 +3,12 @@ import { mockResponse, request } from "@/services/http";
 import { companyService } from "@/services/companyService";
 import { departmentService } from "@/services/departmentService";
 import { siteService } from "@/services/siteService";
+import { employeeService } from "@/services/employeeService";
 
 export { companyService as companyApi };
 export { departmentService as departmentApi };
 export { siteService as siteApi };
+export { employeeService as employeeApi };
 
 /* ------------------------------- auth ------------------------------- */
 export interface Session {
@@ -139,7 +141,7 @@ export const accountingApi = {
 };
 
 export const payrollApi = {
-  employees: () => mockResponse(m.employees),
+  employees: () => employeeService.getEmployees(),
   attendance: () => mockResponse(m.attendance),
   leaves: () => mockResponse(m.leaveRequests),
   payroll: () => mockResponse(m.payrollRuns),
