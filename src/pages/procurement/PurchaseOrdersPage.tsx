@@ -368,7 +368,9 @@ export function PurchaseOrdersPage({ initialPoId }: PurchaseOrdersPageProps) {
                         const updated = poService.updatePurchaseOrderStatus(row.id, "Issued");
                         if (updated) {
                           handleUpdatePo(updated);
-                          toast.success(`PO ${row.poNo} issued to ${row.supplierName || row.supplier}!`);
+                          toast.success(
+                            `PO ${row.poNo} issued to ${row.supplierName || row.supplier}!`,
+                          );
                         }
                       }}
                     >

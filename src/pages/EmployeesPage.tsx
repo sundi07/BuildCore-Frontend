@@ -1,5 +1,16 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { Plus, Users, Building2, Network, Loader2, Filter, Mail, Phone, Calendar, Briefcase } from "lucide-react";
+import {
+  Plus,
+  Users,
+  Building2,
+  Network,
+  Loader2,
+  Filter,
+  Mail,
+  Phone,
+  Calendar,
+  Briefcase,
+} from "lucide-react";
 import { PageHeader } from "@/components/common/PageHeader";
 import { StatCard } from "@/components/common/StatCard";
 import { DataTable, type Column } from "@/components/common/DataTable";
@@ -359,12 +370,18 @@ export function EmployeesPage() {
       {
         key: "email",
         header: "Email",
-        render: (r) => <span className="text-xs text-muted-foreground truncate max-w-[160px] inline-block">{r.email || "—"}</span>,
+        render: (r) => (
+          <span className="text-xs text-muted-foreground truncate max-w-[160px] inline-block">
+            {r.email || "—"}
+          </span>
+        ),
       },
       {
         key: "joiningDate",
         header: "Joining Date",
-        render: (r) => <span className="text-xs">{r.joiningDate ? formatDate(r.joiningDate) : "—"}</span>,
+        render: (r) => (
+          <span className="text-xs">{r.joiningDate ? formatDate(r.joiningDate) : "—"}</span>
+        ),
       },
       {
         key: "status",
@@ -376,7 +393,9 @@ export function EmployeesPage() {
     [companyMap, departmentMap],
   );
 
-  const activeCount = employees.filter((e) => (e.status?.toUpperCase() || "ACTIVE") === "ACTIVE").length;
+  const activeCount = employees.filter(
+    (e) => (e.status?.toUpperCase() || "ACTIVE") === "ACTIVE",
+  ).length;
   const linkedDeptCount = new Set(employees.map((e) => e.departmentId).filter(Boolean)).size;
   const linkedCompanyCount = new Set(employees.map((e) => e.companyId)).size;
 
@@ -423,7 +442,7 @@ export function EmployeesPage() {
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-3 shadow-card">
         <div className="flex flex-wrap items-center gap-2.5">
           <Filter className="size-4 text-muted-foreground" />
-          
+
           {/* Company Filter */}
           <div className="flex items-center gap-1.5">
             <span className="text-xs font-medium text-muted-foreground">Company:</span>
@@ -452,10 +471,7 @@ export function EmployeesPage() {
           {/* Department Filter */}
           <div className="flex items-center gap-1.5">
             <span className="text-xs font-medium text-muted-foreground">Department:</span>
-            <Select
-              value={selectedDeptFilter}
-              onValueChange={(val) => setSelectedDeptFilter(val)}
-            >
+            <Select value={selectedDeptFilter} onValueChange={(val) => setSelectedDeptFilter(val)}>
               <SelectTrigger className="h-8 w-[210px] text-xs">
                 <SelectValue placeholder="All Departments" />
               </SelectTrigger>
@@ -491,7 +507,8 @@ export function EmployeesPage() {
         </div>
 
         <span className="text-xs text-muted-foreground">
-          Showing {displayedEmployees.length} {displayedEmployees.length === 1 ? "employee" : "employees"}
+          Showing {displayedEmployees.length}{" "}
+          {displayedEmployees.length === 1 ? "employee" : "employees"}
         </span>
       </div>
 
@@ -566,7 +583,11 @@ export function EmployeesPage() {
                     disabled={submitting || formDepartments.length === 0}
                   >
                     <SelectTrigger id="departmentId" className="w-full">
-                      <SelectValue placeholder={formDepartments.length ? "Select department" : "No departments"} />
+                      <SelectValue
+                        placeholder={
+                          formDepartments.length ? "Select department" : "No departments"
+                        }
+                      />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="none">None (General)</SelectItem>
@@ -723,7 +744,11 @@ export function EmployeesPage() {
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="truncate font-semibold text-foreground text-base">
-                    {[viewingEmployee.firstName, viewingEmployee.middleName, viewingEmployee.lastName]
+                    {[
+                      viewingEmployee.firstName,
+                      viewingEmployee.middleName,
+                      viewingEmployee.lastName,
+                    ]
                       .filter(Boolean)
                       .join(" ")}
                   </p>

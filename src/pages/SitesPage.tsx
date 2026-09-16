@@ -159,9 +159,7 @@ export function SitesPage() {
 
   // Active filters check
   const hasActiveFilters =
-    searchQuery.trim() !== "" ||
-    selectedProjectFilter !== "all" ||
-    selectedStatusFilter !== "all";
+    searchQuery.trim() !== "" || selectedProjectFilter !== "all" || selectedStatusFilter !== "all";
 
   const handleResetFilters = () => {
     setSearchQuery("");
@@ -448,7 +446,8 @@ export function SitesPage() {
           )}
 
           <span className="ml-auto text-[11px] text-muted-foreground">
-            Showing <strong className="font-semibold text-foreground">{filteredSites.length}</strong> of{" "}
+            Showing{" "}
+            <strong className="font-semibold text-foreground">{filteredSites.length}</strong> of{" "}
             {sites.length} site(s)
           </span>
         </div>
@@ -470,7 +469,12 @@ export function SitesPage() {
             }
             action={
               hasActiveFilters ? (
-                <Button size="sm" variant="outline" onClick={handleResetFilters} className="mt-2 text-xs">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={handleResetFilters}
+                  className="mt-2 text-xs"
+                >
                   Reset Filters
                 </Button>
               ) : (
@@ -522,7 +526,10 @@ export function SitesPage() {
                 >
                   <SelectTrigger
                     id="site-project"
-                    className={cn("mt-1 h-8.5 text-xs", formErrors["projectId"] && "border-destructive")}
+                    className={cn(
+                      "mt-1 h-8.5 text-xs",
+                      formErrors["projectId"] && "border-destructive",
+                    )}
                   >
                     <SelectValue placeholder="Select linked Project" />
                   </SelectTrigger>
@@ -553,7 +560,10 @@ export function SitesPage() {
                       setFormErrors((prev) => ({ ...prev, code: "" }));
                     }}
                     placeholder="e.g. STE-001"
-                    className={cn("mt-1 h-8.5 font-mono text-xs uppercase", formErrors["code"] && "border-destructive")}
+                    className={cn(
+                      "mt-1 h-8.5 font-mono text-xs uppercase",
+                      formErrors["code"] && "border-destructive",
+                    )}
                   />
                   {formErrors["code"] && (
                     <p className="mt-1 text-[11px] text-destructive">{formErrors["code"]}</p>

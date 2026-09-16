@@ -28,11 +28,7 @@ export function resolvePage(slug: string): ReactNode {
 
   if (key === "dashboard") return <ExecutiveDashboard />;
   if (key === "admin/company" || key === "company") return <CompanyPage />;
-  if (
-    key === "admin/departments" ||
-    key === "admin/department" ||
-    key === "departments"
-  ) {
+  if (key === "admin/departments" || key === "admin/department" || key === "departments") {
     return <DepartmentsPage />;
   }
   if (key === "admin/sites" || key === "admin/site" || key === "sites") {

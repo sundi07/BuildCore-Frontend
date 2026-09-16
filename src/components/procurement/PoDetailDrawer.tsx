@@ -132,11 +132,17 @@ export function PoDetailDrawer({
                   </Badge>
 
                   {isInterState ? (
-                    <Badge variant="outline" className="text-[10px] text-blue-600 border-blue-500/30 bg-blue-500/5">
+                    <Badge
+                      variant="outline"
+                      className="text-[10px] text-blue-600 border-blue-500/30 bg-blue-500/5"
+                    >
                       Inter-State (IGST)
                     </Badge>
                   ) : (
-                    <Badge variant="outline" className="text-[10px] text-emerald-600 border-emerald-500/30 bg-emerald-500/5">
+                    <Badge
+                      variant="outline"
+                      className="text-[10px] text-emerald-600 border-emerald-500/30 bg-emerald-500/5"
+                    >
                       Intra-State (CGST + SGST)
                     </Badge>
                   )}
@@ -275,7 +281,9 @@ export function PoDetailDrawer({
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-6 gap-2.5">
                 <div className="rounded-lg border bg-card p-2.5 shadow-xs">
-                  <span className="text-[10px] text-muted-foreground uppercase block">Basic Value</span>
+                  <span className="text-[10px] text-muted-foreground uppercase block">
+                    Basic Value
+                  </span>
                   <p className="text-base font-bold text-foreground mt-0.5 font-mono">
                     {formatINR(po.basicValue || po.amount)}
                   </p>
@@ -283,7 +291,9 @@ export function PoDetailDrawer({
                 </div>
 
                 <div className="rounded-lg border bg-card p-2.5 shadow-xs">
-                  <span className="text-[10px] text-muted-foreground uppercase block">Discount</span>
+                  <span className="text-[10px] text-muted-foreground uppercase block">
+                    Discount
+                  </span>
                   <p className="text-base font-bold text-foreground mt-0.5 font-mono">
                     {formatINR(po.discount || 0)}
                   </p>
@@ -291,15 +301,21 @@ export function PoDetailDrawer({
                 </div>
 
                 <div className="rounded-lg border bg-card p-2.5 shadow-xs">
-                  <span className="text-[10px] text-muted-foreground uppercase block">Taxable Value</span>
+                  <span className="text-[10px] text-muted-foreground uppercase block">
+                    Taxable Value
+                  </span>
                   <p className="text-base font-bold text-foreground mt-0.5 font-mono">
-                    {formatINR(po.taxableValue || (po.basicValue || po.amount) - (po.discount || 0))}
+                    {formatINR(
+                      po.taxableValue || (po.basicValue || po.amount) - (po.discount || 0),
+                    )}
                   </p>
                   <span className="text-[10px] text-muted-foreground">Assessable base</span>
                 </div>
 
                 <div className="rounded-lg border bg-card p-2.5 shadow-xs">
-                  <span className="text-[10px] text-muted-foreground uppercase block">Total GST</span>
+                  <span className="text-[10px] text-muted-foreground uppercase block">
+                    Total GST
+                  </span>
                   <p className="text-base font-bold text-foreground mt-0.5 font-mono">
                     {formatINR(po.totalGst || po.gst)}
                   </p>
@@ -311,7 +327,9 @@ export function PoDetailDrawer({
                 </div>
 
                 <div className="rounded-lg border bg-card p-2.5 shadow-xs">
-                  <span className="text-[10px] text-muted-foreground uppercase block">Other Charges</span>
+                  <span className="text-[10px] text-muted-foreground uppercase block">
+                    Other Charges
+                  </span>
                   <p className="text-base font-bold text-foreground mt-0.5 font-mono">
                     {formatINR(po.otherCharges || 0)}
                   </p>
@@ -320,8 +338,13 @@ export function PoDetailDrawer({
 
                 <div className="rounded-lg border bg-primary/10 border-primary/25 p-2.5 shadow-xs">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold text-primary uppercase">Grand Total</span>
-                    <Badge variant="outline" className="text-[9px] px-1 py-0 font-bold bg-background">
+                    <span className="text-[10px] font-bold text-primary uppercase">
+                      Grand Total
+                    </span>
+                    <Badge
+                      variant="outline"
+                      className="text-[9px] px-1 py-0 font-bold bg-background"
+                    >
                       Landed
                     </Badge>
                   </div>
@@ -329,7 +352,12 @@ export function PoDetailDrawer({
                     {formatINR(po.grandTotal || po.total)}
                   </p>
                   <span className="text-[10px] text-muted-foreground">
-                    Round off: {po.roundOff ? (po.roundOff > 0 ? `+₹${po.roundOff}` : `-₹${Math.abs(po.roundOff)}`) : "₹0"}
+                    Round off:{" "}
+                    {po.roundOff
+                      ? po.roundOff > 0
+                        ? `+₹${po.roundOff}`
+                        : `-₹${Math.abs(po.roundOff)}`
+                      : "₹0"}
                   </span>
                 </div>
               </div>
@@ -356,7 +384,9 @@ export function PoDetailDrawer({
                   <span className="font-semibold text-foreground block">
                     {po.contactPerson || "Rajesh Nair"}
                   </span>
-                  <span className="text-[10px] text-muted-foreground block">{po.phone || "+91 98231 44550"}</span>
+                  <span className="text-[10px] text-muted-foreground block">
+                    {po.phone || "+91 98231 44550"}
+                  </span>
                 </div>
 
                 <div>
@@ -444,7 +474,9 @@ export function PoDetailDrawer({
                               {it.category}
                             </span>
                           </td>
-                          <td className="p-2.5 text-center text-muted-foreground font-medium">{it.unit}</td>
+                          <td className="p-2.5 text-center text-muted-foreground font-medium">
+                            {it.unit}
+                          </td>
                           <td className="p-2.5 text-center text-muted-foreground">
                             {it.approvedQty}
                           </td>
@@ -491,7 +523,9 @@ export function PoDetailDrawer({
                         1. Payment Terms
                       </span>
                       <p className="text-foreground font-medium">
-                        {po.commercialTerms?.paymentTerms || po.paymentTerms || "30 Days from receipt"}
+                        {po.commercialTerms?.paymentTerms ||
+                          po.paymentTerms ||
+                          "30 Days from receipt"}
                       </p>
                     </div>
 
@@ -527,7 +561,8 @@ export function PoDetailDrawer({
                         5. Loading / Unloading
                       </span>
                       <p className="text-foreground font-medium">
-                        {po.commercialTerms?.loadingUnloading || "Unloading at site by buyer; loading at plant by seller"}
+                        {po.commercialTerms?.loadingUnloading ||
+                          "Unloading at site by buyer; loading at plant by seller"}
                       </p>
                     </div>
 
@@ -536,7 +571,8 @@ export function PoDetailDrawer({
                         6. Taxes & Duties
                       </span>
                       <p className="text-foreground font-medium">
-                        {po.commercialTerms?.taxes || "GST 18% extra as applicable with RERA ITC eligibility"}
+                        {po.commercialTerms?.taxes ||
+                          "GST 18% extra as applicable with RERA ITC eligibility"}
                       </p>
                     </div>
 
@@ -545,7 +581,9 @@ export function PoDetailDrawer({
                         7. Warranty Terms
                       </span>
                       <p className="text-foreground font-medium">
-                        {po.commercialTerms?.warranty || po.warrantyTerms || "12 Months standard manufacturer defect warranty"}
+                        {po.commercialTerms?.warranty ||
+                          po.warrantyTerms ||
+                          "12 Months standard manufacturer defect warranty"}
                       </p>
                     </div>
 
@@ -554,7 +592,8 @@ export function PoDetailDrawer({
                         8. Penalty / Liquidated Damages (LD)
                       </span>
                       <p className="text-foreground font-medium">
-                        {po.commercialTerms?.penaltyLd || "0.5% per week of delayed dispatch capped at 5%"}
+                        {po.commercialTerms?.penaltyLd ||
+                          "0.5% per week of delayed dispatch capped at 5%"}
                       </p>
                     </div>
                   </div>
@@ -564,7 +603,8 @@ export function PoDetailDrawer({
                       9. Other Special Terms & Conditions
                     </span>
                     <p className="text-foreground mt-0.5">
-                      {po.commercialTerms?.otherTerms || "Manufacturer test certificates (MTC) conforming to IS standard must accompany each consignment."}
+                      {po.commercialTerms?.otherTerms ||
+                        "Manufacturer test certificates (MTC) conforming to IS standard must accompany each consignment."}
                     </p>
                   </div>
                 </div>
@@ -575,7 +615,8 @@ export function PoDetailDrawer({
                 <div className="rounded-xl border bg-card p-4 shadow-xs space-y-3">
                   <div className="flex items-center justify-between pb-1 border-b">
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                      <Truck className="size-3.5 text-primary" /> Item-Wise Delivery Commitments & Site Locations
+                      <Truck className="size-3.5 text-primary" /> Item-Wise Delivery Commitments &
+                      Site Locations
                     </h4>
                     <span className="text-[11px] text-muted-foreground">
                       Destination: {po.siteName || po.site}
@@ -594,19 +635,25 @@ export function PoDetailDrawer({
                         </tr>
                       </thead>
                       <tbody className="divide-y text-xs">
-                        {(po.deliverySchedule || items.map((it, idx) => ({
-                          id: `ds-${idx + 1}`,
-                          itemCode: it.itemCode,
-                          itemDescription: it.itemDescription,
-                          quantity: it.poQty,
-                          unit: it.unit,
-                          deliveryDate: it.deliveryDate,
-                          deliveryLocation: it.deliveryLocation || `${po.siteName || "Site"} Godown`,
-                          remarks: it.remarks || "Batch dispatch",
-                        }))).map((ds, idx) => (
+                        {(
+                          po.deliverySchedule ||
+                          items.map((it, idx) => ({
+                            id: `ds-${idx + 1}`,
+                            itemCode: it.itemCode,
+                            itemDescription: it.itemDescription,
+                            quantity: it.poQty,
+                            unit: it.unit,
+                            deliveryDate: it.deliveryDate,
+                            deliveryLocation:
+                              it.deliveryLocation || `${po.siteName || "Site"} Godown`,
+                            remarks: it.remarks || "Batch dispatch",
+                          }))
+                        ).map((ds, idx) => (
                           <tr key={idx} className="hover:bg-muted/20 transition-colors">
                             <td className="p-2.5 font-medium">
-                              <span className="font-mono text-primary font-bold mr-1.5">{ds.itemCode}</span>
+                              <span className="font-mono text-primary font-bold mr-1.5">
+                                {ds.itemCode}
+                              </span>
                               {ds.itemDescription}
                             </td>
                             <td className="p-2.5 text-center font-bold font-mono">
@@ -655,7 +702,9 @@ export function PoDetailDrawer({
                       ].map((stage, idx) => {
                         const isIssued = po.status === "Issued";
                         const isApproved = ["Approved", "Issued"].includes(po.status);
-                        const isPending = ["Pending Approval", "Approved", "Issued"].includes(po.status);
+                        const isPending = ["Pending Approval", "Approved", "Issued"].includes(
+                          po.status,
+                        );
 
                         let stepDone = false;
                         let stepCurrent = false;
@@ -745,32 +794,34 @@ export function PoDetailDrawer({
                     Associated Order & Tender Documents
                   </h4>
                   <div className="divide-y border rounded-lg overflow-hidden">
-                    {(po.documents || [
-                      {
-                        id: "doc-po-1",
-                        name: `Purchase_Order_${po.poNo.replace(/\//g, "_")}.pdf`,
-                        type: "PDF",
-                        size: "2.4 MB",
-                        uploadedAt: po.date,
-                        category: "PO PDF",
-                      },
-                      {
-                        id: "doc-po-2",
-                        name: "Supplier_Signed_Quotation.pdf",
-                        type: "PDF",
-                        size: "1.8 MB",
-                        uploadedAt: po.date,
-                        category: "Quotation",
-                      },
-                      {
-                        id: "doc-po-3",
-                        name: "Approved_Comparative_Statement.pdf",
-                        type: "PDF",
-                        size: "3.1 MB",
-                        uploadedAt: po.date,
-                        category: "Technical Specifications",
-                      },
-                    ]).map((doc, idx) => (
+                    {(
+                      po.documents || [
+                        {
+                          id: "doc-po-1",
+                          name: `Purchase_Order_${po.poNo.replace(/\//g, "_")}.pdf`,
+                          type: "PDF",
+                          size: "2.4 MB",
+                          uploadedAt: po.date,
+                          category: "PO PDF",
+                        },
+                        {
+                          id: "doc-po-2",
+                          name: "Supplier_Signed_Quotation.pdf",
+                          type: "PDF",
+                          size: "1.8 MB",
+                          uploadedAt: po.date,
+                          category: "Quotation",
+                        },
+                        {
+                          id: "doc-po-3",
+                          name: "Approved_Comparative_Statement.pdf",
+                          type: "PDF",
+                          size: "3.1 MB",
+                          uploadedAt: po.date,
+                          category: "Technical Specifications",
+                        },
+                      ]
+                    ).map((doc, idx) => (
                       <div
                         key={idx}
                         className="p-3 flex items-center justify-between hover:bg-muted/20 transition-colors"
@@ -875,7 +926,9 @@ export function PoDetailDrawer({
                     variant="outline"
                     size="sm"
                     className="text-xs gap-1"
-                    onClick={() => toast.success(`PO ${po.poNo} link copied and shared with supplier email!`)}
+                    onClick={() =>
+                      toast.success(`PO ${po.poNo} link copied and shared with supplier email!`)
+                    }
                   >
                     <Share2 className="size-3.5" /> Share
                   </Button>

@@ -70,9 +70,8 @@ export async function request<T>(path: string, init?: RequestInit): Promise<T> {
     }
   }
 
-  const url = path.startsWith("http://") || path.startsWith("https://")
-    ? path
-    : `${API_BASE_URL}${path}`;
+  const url =
+    path.startsWith("http://") || path.startsWith("https://") ? path : `${API_BASE_URL}${path}`;
 
   const res = await fetch(url, {
     ...init,

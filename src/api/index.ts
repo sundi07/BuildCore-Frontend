@@ -15,7 +15,14 @@ export interface Session {
   token: string;
   tokenType?: string;
   userId?: number;
-  user: { name: string; username: string; role: string; email: string; branch: string; id?: number };
+  user: {
+    name: string;
+    username: string;
+    role: string;
+    email: string;
+    branch: string;
+    id?: number;
+  };
 }
 
 export const authApi = {
@@ -41,12 +48,7 @@ export const authApi = {
       body: JSON.stringify({ username: username.trim(), password }),
     });
 
-    const token =
-      res.accessToken ||
-      res.token ||
-      res.data?.accessToken ||
-      res.data?.token ||
-      "";
+    const token = res.accessToken || res.token || res.data?.accessToken || res.data?.token || "";
 
     const tokenType = res.tokenType || res.data?.tokenType || "Bearer";
     const userId = res.userId ?? res.data?.userId ?? 1;

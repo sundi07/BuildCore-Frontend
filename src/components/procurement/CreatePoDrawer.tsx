@@ -206,7 +206,8 @@ export function CreatePoDrawer({
         const merged = { ...it, ...patch };
         const poQty = merged.poQty >= 0 ? merged.poQty : it.poQty;
         const rate = merged.rate >= 0 ? merged.rate : it.rate;
-        const discountAmount = (merged.discountAmount ?? 0) >= 0 ? (merged.discountAmount ?? 0) : (it.discountAmount || 0);
+        const discountAmount =
+          (merged.discountAmount ?? 0) >= 0 ? (merged.discountAmount ?? 0) : it.discountAmount || 0;
         const lineBasic = poQty * rate;
         const taxable = Math.max(0, lineBasic - discountAmount);
         const gstPct = merged.gstPct ?? it.gstPct ?? 18;
@@ -407,13 +408,17 @@ export function CreatePoDrawer({
                   {poType} PO
                 </Badge>
                 {isEditMode && (
-                  <Badge variant="secondary" className="text-xs bg-amber-500/10 text-amber-600 border-amber-500/20">
+                  <Badge
+                    variant="secondary"
+                    className="text-xs bg-amber-500/10 text-amber-600 border-amber-500/20"
+                  >
                     Draft Revision
                   </Badge>
                 )}
               </div>
               <SheetDescription className="text-xs text-muted-foreground mt-0.5">
-                Generate contractual purchase order from approved techno-commercial comparative statement.
+                Generate contractual purchase order from approved techno-commercial comparative
+                statement.
               </SheetDescription>
             </div>
 
@@ -478,24 +483,38 @@ export function CreatePoDrawer({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Supplier Master Info Card */}
               <div className="space-y-1.5 text-xs">
-                <Label className="text-xs text-muted-foreground">Contracted Supplier (Master Record)</Label>
+                <Label className="text-xs text-muted-foreground">
+                  Contracted Supplier (Master Record)
+                </Label>
                 <div className="p-3 rounded-md border bg-muted/30 flex items-start justify-between">
                   <div className="space-y-1">
                     <span className="font-bold text-foreground text-sm block">
                       {activeComparative?.recommendedSupplierName || "ABC Cement Suppliers"}
                     </span>
                     <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
-                      <span>Code: <strong className="font-mono text-foreground">{activeComparative?.recommendedSupplierCode || "VEN-001"}</strong></span>
+                      <span>
+                        Code:{" "}
+                        <strong className="font-mono text-foreground">
+                          {activeComparative?.recommendedSupplierCode || "VEN-001"}
+                        </strong>
+                      </span>
                       <span>•</span>
-                      <span>GSTIN: <strong className="font-mono text-foreground">27AACCA1234M1Z2</strong></span>
+                      <span>
+                        GSTIN:{" "}
+                        <strong className="font-mono text-foreground">27AACCA1234M1Z2</strong>
+                      </span>
                       <span>•</span>
-                      <span>PAN: <strong className="font-mono text-foreground">AACCA1234M</strong></span>
+                      <span>
+                        PAN: <strong className="font-mono text-foreground">AACCA1234M</strong>
+                      </span>
                     </div>
                     <div className="text-[11px] text-muted-foreground">
-                      Contact: <span className="font-medium text-foreground">Rajesh Nair</span> • Ph: +91 98231 44550 • Email: sales@abccement.com
+                      Contact: <span className="font-medium text-foreground">Rajesh Nair</span> •
+                      Ph: +91 98231 44550 • Email: sales@abccement.com
                     </div>
                     <div className="text-[10px] text-muted-foreground pt-0.5">
-                      Billing Address: Plot No. 42, Bhosari Industrial Area, Pune, Maharashtra 411026
+                      Billing Address: Plot No. 42, Bhosari Industrial Area, Pune, Maharashtra
+                      411026
                     </div>
                   </div>
                   <Lock className="size-4 text-muted-foreground/60 shrink-0 mt-1" />
@@ -508,17 +527,24 @@ export function CreatePoDrawer({
                 <div className="p-3 rounded-md border bg-muted/30 space-y-1.5">
                   <div className="flex items-center gap-1.5 text-foreground font-semibold">
                     <Building2 className="size-4 text-primary shrink-0" />
-                    <span>{activeComparative?.projectName || "Baner Gateway Signature Suites"}</span>
+                    <span>
+                      {activeComparative?.projectName || "Baner Gateway Signature Suites"}
+                    </span>
                   </div>
                   <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
                     <MapPin className="size-4 text-primary shrink-0" />
                     <span>{activeComparative?.siteName || "Main Plot Site, Baner, Pune"}</span>
                   </div>
                   <div className="flex items-center justify-between pt-1 border-t text-[11px] text-muted-foreground">
-                    <span>Destination State: <strong>27 (Maharashtra)</strong></span>
+                    <span>
+                      Destination State: <strong>27 (Maharashtra)</strong>
+                    </span>
                     <div className="flex items-center gap-1">
                       <Label className="text-[10px] uppercase font-semibold">GST Mode:</Label>
-                      <Select value={taxType} onValueChange={(v) => handleTaxTypeChange(v as "intrastate" | "interstate")}>
+                      <Select
+                        value={taxType}
+                        onValueChange={(v) => handleTaxTypeChange(v as "intrastate" | "interstate")}
+                      >
                         <SelectTrigger className="h-6 text-[10px] w-36">
                           <SelectValue />
                         </SelectTrigger>
@@ -651,7 +677,9 @@ export function CreatePoDrawer({
                             {it.category}
                           </span>
                         </td>
-                        <td className="p-2.5 text-center text-muted-foreground font-medium">{it.unit}</td>
+                        <td className="p-2.5 text-center text-muted-foreground font-medium">
+                          {it.unit}
+                        </td>
                         <td className="p-2.5 text-center text-muted-foreground font-medium">
                           {it.approvedQty}
                         </td>
@@ -660,7 +688,11 @@ export function CreatePoDrawer({
                             type="number"
                             className="h-7 text-center text-xs font-bold w-20 mx-auto"
                             value={it.poQty}
-                            onChange={(e) => updateItem(idx, { poQty: Math.max(0, parseFloat(e.target.value) || 0) })}
+                            onChange={(e) =>
+                              updateItem(idx, {
+                                poQty: Math.max(0, parseFloat(e.target.value) || 0),
+                              })
+                            }
                             min={0}
                           />
                         </td>
@@ -669,7 +701,11 @@ export function CreatePoDrawer({
                             type="number"
                             className="h-7 text-right text-xs font-mono w-22 ml-auto"
                             value={it.rate}
-                            onChange={(e) => updateItem(idx, { rate: Math.max(0, parseFloat(e.target.value) || 0) })}
+                            onChange={(e) =>
+                              updateItem(idx, {
+                                rate: Math.max(0, parseFloat(e.target.value) || 0),
+                              })
+                            }
                             min={0}
                           />
                         </td>
@@ -678,7 +714,11 @@ export function CreatePoDrawer({
                             type="number"
                             className="h-7 text-right text-xs font-mono w-18 ml-auto"
                             value={it.discountAmount || 0}
-                            onChange={(e) => updateItem(idx, { discountAmount: Math.max(0, parseFloat(e.target.value) || 0) })}
+                            onChange={(e) =>
+                              updateItem(idx, {
+                                discountAmount: Math.max(0, parseFloat(e.target.value) || 0),
+                              })
+                            }
                             min={0}
                           />
                         </td>
@@ -689,7 +729,9 @@ export function CreatePoDrawer({
                           <select
                             className="h-7 text-xs border rounded bg-background px-1 font-mono text-center"
                             value={it.gstPct}
-                            onChange={(e) => updateItem(idx, { gstPct: parseFloat(e.target.value) || 0 })}
+                            onChange={(e) =>
+                              updateItem(idx, { gstPct: parseFloat(e.target.value) || 0 })
+                            }
                           >
                             <option value={18}>18%</option>
                             <option value={28}>28%</option>
@@ -730,7 +772,8 @@ export function CreatePoDrawer({
               <div className="rounded-xl border bg-card p-4 shadow-xs space-y-3">
                 <div className="flex items-center justify-between border-b pb-2">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                    <Percent className="size-3.5 text-primary" /> Indian GST & Commercial Landed Totals
+                    <Percent className="size-3.5 text-primary" /> Indian GST & Commercial Landed
+                    Totals
                   </h4>
                   <Badge variant="secondary" className="text-[10px] font-mono">
                     {taxType === "intrastate"
@@ -788,7 +831,9 @@ export function CreatePoDrawer({
 
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 pt-2 text-xs border-t">
                   <div className="space-y-1">
-                    <Label className="text-[11px] text-muted-foreground">Other Charges (Freight/Loading)</Label>
+                    <Label className="text-[11px] text-muted-foreground">
+                      Other Charges (Freight/Loading)
+                    </Label>
                     <Input
                       type="number"
                       className="h-8 text-xs font-mono"
@@ -799,7 +844,9 @@ export function CreatePoDrawer({
                   </div>
 
                   <div className="space-y-1">
-                    <Label className="text-[11px] text-muted-foreground">Overall Additional Discount</Label>
+                    <Label className="text-[11px] text-muted-foreground">
+                      Overall Additional Discount
+                    </Label>
                     <Input
                       type="number"
                       className="h-8 text-xs font-mono"
@@ -812,7 +859,9 @@ export function CreatePoDrawer({
                   <div className="p-2 rounded-lg border bg-muted/15 flex flex-col justify-center">
                     <span className="text-[11px] text-muted-foreground">Round Off</span>
                     <span className="text-xs font-mono font-semibold text-foreground">
-                      {totals.roundOff >= 0 ? `+₹${totals.roundOff}` : `-₹${Math.abs(totals.roundOff)}`}
+                      {totals.roundOff >= 0
+                        ? `+₹${totals.roundOff}`
+                        : `-₹${Math.abs(totals.roundOff)}`}
                     </span>
                   </div>
 
@@ -925,7 +974,8 @@ export function CreatePoDrawer({
               <div className="rounded-xl border bg-card p-4 shadow-xs space-y-3">
                 <div className="flex items-center justify-between pb-1 border-b">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                    <Truck className="size-3.5 text-primary" /> Item-Wise Delivery Schedule & Destination Location
+                    <Truck className="size-3.5 text-primary" /> Item-Wise Delivery Schedule &
+                    Destination Location
                   </h4>
                   <span className="text-[11px] text-muted-foreground">
                     Synchronized with PO Items
@@ -947,7 +997,9 @@ export function CreatePoDrawer({
                       {items.map((it, idx) => (
                         <tr key={idx} className="hover:bg-muted/20 transition-colors">
                           <td className="p-2.5 font-medium">
-                            <span className="font-mono text-primary font-bold mr-1.5">{it.itemCode}</span>
+                            <span className="font-mono text-primary font-bold mr-1.5">
+                              {it.itemCode}
+                            </span>
                             {it.itemDescription}
                           </td>
                           <td className="p-2.5 text-center font-bold font-mono">
@@ -964,8 +1016,13 @@ export function CreatePoDrawer({
                           <td className="p-2.5">
                             <Input
                               className="h-7 text-xs"
-                              value={it.deliveryLocation || `${activeComparative?.siteName || "Site"} Godown`}
-                              onChange={(e) => updateItem(idx, { deliveryLocation: e.target.value })}
+                              value={
+                                it.deliveryLocation ||
+                                `${activeComparative?.siteName || "Site"} Godown`
+                              }
+                              onChange={(e) =>
+                                updateItem(idx, { deliveryLocation: e.target.value })
+                              }
                             />
                           </td>
                           <td className="p-2.5">

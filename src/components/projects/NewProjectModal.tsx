@@ -265,7 +265,9 @@ export function NewProjectModal({
       onOpenChange(false);
     } catch (err) {
       console.error(err);
-      toast.error(err instanceof Error ? err.message : "Failed to create project. Please check values.");
+      toast.error(
+        err instanceof Error ? err.message : "Failed to create project. Please check values.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -328,10 +330,7 @@ export function NewProjectModal({
                 >
                   <SelectTrigger
                     id="proj-company"
-                    className={cn(
-                      "mt-1.5 h-9 text-xs",
-                      errors["company"] && "border-destructive",
-                    )}
+                    className={cn("mt-1.5 h-9 text-xs", errors["company"] && "border-destructive")}
                   >
                     <SelectValue placeholder="Select Company" />
                   </SelectTrigger>

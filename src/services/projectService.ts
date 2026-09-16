@@ -189,9 +189,7 @@ export const projectService = {
   /** GET /api/v1/projects or GET /api/v1/projects/company/{companyId} */
   async getProjects(companyId?: number): Promise<Project[]> {
     const url =
-      companyId && companyId > 0
-        ? `/api/v1/projects/company/${companyId}`
-        : "/api/v1/projects";
+      companyId && companyId > 0 ? `/api/v1/projects/company/${companyId}` : "/api/v1/projects";
     const res = await request<BackendResponse<BackendProject[]>>(url);
     const backendItems = res.data ?? [];
     return backendItems.map(mapBackendProjectToProject);

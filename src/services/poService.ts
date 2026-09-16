@@ -429,7 +429,9 @@ class PoService {
               timestamp: legacy.date,
               user: "Vikram Malhotra",
               role: "Director",
-              status: ["Approved", "Issued", "Partially Received", "Fully Received"].includes(poStatus)
+              status: ["Approved", "Issued", "Partially Received", "Fully Received"].includes(
+                poStatus,
+              )
                 ? "completed"
                 : "upcoming",
             },

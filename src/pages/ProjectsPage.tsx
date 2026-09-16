@@ -915,9 +915,7 @@ export function ProjectsPage() {
               </Label>
               <Select
                 value={String(editFormData.companyId)}
-                onValueChange={(v) =>
-                  setEditFormData({ ...editFormData, companyId: Number(v) })
-                }
+                onValueChange={(v) => setEditFormData({ ...editFormData, companyId: Number(v) })}
               >
                 <SelectTrigger className="mt-1 h-8 text-xs">
                   <SelectValue />
@@ -951,25 +949,19 @@ export function ProjectsPage() {
                 <Label className="text-xs">Project Type</Label>
                 <Select
                   value={editFormData.projectType || "Residential"}
-                  onValueChange={(v) =>
-                    setEditFormData({ ...editFormData, projectType: v })
-                  }
+                  onValueChange={(v) => setEditFormData({ ...editFormData, projectType: v })}
                 >
                   <SelectTrigger className="mt-1 h-8 text-xs">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    {[
-                      "Residential",
-                      "Commercial",
-                      "Infrastructure",
-                      "Mixed Use",
-                      "Industrial",
-                    ].map((t) => (
-                      <SelectItem key={t} value={t} className="text-xs">
-                        {t}
-                      </SelectItem>
-                    ))}
+                    {["Residential", "Commercial", "Infrastructure", "Mixed Use", "Industrial"].map(
+                      (t) => (
+                        <SelectItem key={t} value={t} className="text-xs">
+                          {t}
+                        </SelectItem>
+                      ),
+                    )}
                   </SelectContent>
                 </Select>
               </div>
@@ -981,9 +973,7 @@ export function ProjectsPage() {
               <Input
                 className="mt-1 h-8 text-xs"
                 value={editFormData.name}
-                onChange={(e) =>
-                  setEditFormData({ ...editFormData, name: e.target.value })
-                }
+                onChange={(e) => setEditFormData({ ...editFormData, name: e.target.value })}
               />
             </div>
             <div>
@@ -991,9 +981,7 @@ export function ProjectsPage() {
               <Input
                 className="mt-1 h-8 text-xs"
                 value={editFormData.location || ""}
-                onChange={(e) =>
-                  setEditFormData({ ...editFormData, location: e.target.value })
-                }
+                onChange={(e) => setEditFormData({ ...editFormData, location: e.target.value })}
               />
             </div>
             <div className="grid grid-cols-2 gap-3">
@@ -1003,9 +991,7 @@ export function ProjectsPage() {
                   type="date"
                   className="mt-1 h-8 text-xs"
                   value={editFormData.startDate || ""}
-                  onChange={(e) =>
-                    setEditFormData({ ...editFormData, startDate: e.target.value })
-                  }
+                  onChange={(e) => setEditFormData({ ...editFormData, startDate: e.target.value })}
                 />
               </div>
               <div>
@@ -1043,9 +1029,7 @@ export function ProjectsPage() {
                 rows={2}
                 className="mt-1 text-xs"
                 value={editFormData.description || ""}
-                onChange={(e) =>
-                  setEditFormData({ ...editFormData, description: e.target.value })
-                }
+                onChange={(e) => setEditFormData({ ...editFormData, description: e.target.value })}
               />
             </div>
           </div>

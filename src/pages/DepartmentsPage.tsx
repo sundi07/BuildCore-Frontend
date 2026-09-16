@@ -65,22 +65,25 @@ export function DepartmentsPage() {
   }, []);
 
   // Load departments based on company filter
-  const fetchDepartments = useCallback(async (companyIdFilter = selectedCompanyFilter) => {
-    try {
-      setLoading(true);
-      let data: Department[];
-      if (companyIdFilter === "all" || !companyIdFilter) {
-        data = await departmentService.getDepartments();
-      } else {
-        data = await departmentService.getDepartmentsByCompany(Number(companyIdFilter));
+  const fetchDepartments = useCallback(
+    async (companyIdFilter = selectedCompanyFilter) => {
+      try {
+        setLoading(true);
+        let data: Department[];
+        if (companyIdFilter === "all" || !companyIdFilter) {
+          data = await departmentService.getDepartments();
+        } else {
+          data = await departmentService.getDepartmentsByCompany(Number(companyIdFilter));
+        }
+        setDepartments(data);
+      } catch (err) {
+        toast.error(err instanceof Error ? err.message : "Failed to load departments");
+      } finally {
+        setLoading(false);
       }
-      setDepartments(data);
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Failed to load departments");
-    } finally {
-      setLoading(false);
-    }
-  }, [selectedCompanyFilter]);
+    },
+    [selectedCompanyFilter],
+  );
 
   useEffect(() => {
     void fetchCompanies();
