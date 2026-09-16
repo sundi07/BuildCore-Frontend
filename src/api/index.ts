@@ -2,9 +2,11 @@ import * as m from "@/mock/data";
 import { mockResponse, request } from "@/services/http";
 import { companyService } from "@/services/companyService";
 import { departmentService } from "@/services/departmentService";
+import { siteService } from "@/services/siteService";
 
 export { companyService as companyApi };
 export { departmentService as departmentApi };
+export { siteService as siteApi };
 
 /* ------------------------------- auth ------------------------------- */
 export interface Session {

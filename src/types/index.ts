@@ -30,6 +30,29 @@ export interface Department {
   status?: "ACTIVE" | "INACTIVE";
 }
 
+export interface Site {
+  id: number;
+  projectId: number;
+  code: string;
+  name: string;
+  address?: string | null | undefined;
+  city?: string | null | undefined;
+  state?: string | null | undefined;
+  pincode?: string | null | undefined;
+  status?: string | null | undefined;
+}
+
+export interface SiteRequest {
+  projectId: number;
+  code: string;
+  name: string;
+  address?: string | null | undefined;
+  city?: string | null | undefined;
+  state?: string | null | undefined;
+  pincode?: string | null | undefined;
+  status?: string | null | undefined;
+}
+
 export type ProjectStatus =
   "Planning" | "Not Started" | "In Progress" | "On Hold" | "Completed" | "Cancelled";
 

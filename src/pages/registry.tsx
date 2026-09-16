@@ -19,6 +19,7 @@ import { PurchaseOrdersPage } from "@/pages/procurement/PurchaseOrdersPage";
 import { ComparativeStatementPage } from "@/pages/procurement/ComparativeStatementPage";
 import { CompanyPage } from "@/pages/CompanyPage";
 import { DepartmentsPage } from "@/pages/DepartmentsPage";
+import { SitesPage } from "@/pages/SitesPage";
 import { presets } from "@/pages/presets";
 
 export function resolvePage(slug: string): ReactNode {
@@ -32,6 +33,9 @@ export function resolvePage(slug: string): ReactNode {
     key === "departments"
   ) {
     return <DepartmentsPage />;
+  }
+  if (key === "admin/sites" || key === "admin/site" || key === "sites") {
+    return <SitesPage />;
   }
   if (key === "projects") return <ProjectsPage />;
   if (key.startsWith("projects/")) {
