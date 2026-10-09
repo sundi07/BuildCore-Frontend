@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Background Gradient: Deep Slate to Enterprise Navy -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0A0F1D" />
+    </linearGradient>
+
+    <!-- Subtle Blue Rim Border Gradient -->
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#2563EB" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#1D4ED8" stop-opacity="0.7" />
+    </linearGradient>
+
+    <!-- Hard Hat Amber Gradient -->
+    <linearGradient id="hatGrad" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="35%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+
+    <!-- Visor Brim Gradient -->
+    <linearGradient id="brimGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B45309" />
+      <stop offset="20%" stop-color="#F59E0B" />
+      <stop offset="50%" stop-color="#FEF08A" />
+      <stop offset="80%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+
+    <!-- Crest / Center Ridge Gradient -->
+    <linearGradient id="crestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF9C3" />
+      <stop offset="40%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <!-- Foundation Core Blue Gradient -->
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+
+    <!-- Drop Shadow Filter for Helmet -->
+    <filter id="helmetShadow" x="-15%" y="-15%" width="130%" height="135%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Base Canvas -->
+  <rect x="16" y="16" width="480" height="480" rx="104" fill="url(#bgGrad)" stroke="url(#rimGrad)" stroke-width="7" />
+
+  <!-- Architectural Background Grid -->
+  <g opacity="0.08" stroke="#93C5FD" stroke-width="2.5">
+    <line x1="16" y1="128" x2="496" y2="128" />
+    <line x1="16" y1="256" x2="496" y2="256" />
+    <line x1="16" y1="384" x2="496" y2="384" />
+    <line x1="128" y1="16" x2="128" y2="496" />
+    <line x1="256" y1="16" x2="256" y2="496" />
+    <line x1="384" y1="16" x2="384" y2="496" />
+  </g>
+
+  <!-- BUILDCORE Construction Helmet -->
+  <g filter="url(#helmetShadow)">
+    <!-- Helmet Main Dome -->
+    <path d="M 116 280 
+             C 116 175, 175 110, 256 110 
+             C 337 110, 396 175, 396 280 
+             Z" 
+          fill="url(#hatGrad)" />
+
+    <!-- Left Specular Contour Highlight -->
+    <path d="M 175 276 C 175 195, 205 138, 256 126 C 224 146, 196 206, 194 276 Z" 
+          fill="#FEF08A" opacity="0.45" />
+
+    <!-- Right Shadow Contour -->
+    <path d="M 337 276 C 337 195, 307 138, 256 126 C 288 146, 316 206, 318 276 Z" 
+          fill="#78350F" opacity="0.3" />
+
+    <!-- Central Reinforcement Ridge / Spine -->
+    <path d="M 235 108 
+             C 235 97, 244 88, 256 88 
+             C 268 88, 277 97, 277 108 
+             L 275 254 
+             C 275 262, 267 268, 256 268 
+             C 245 268, 237 262, 237 254 
+             Z" 
+          fill="url(#crestGrad)" />
+
+    <!-- Crest Highlight Stripe -->
+    <line x1="256" y1="98" x2="256" y2="252" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.9" />
+
+    <!-- Hard Hat Visor / Protective Brim -->
+    <path d="M 80 288 
+             C 80 274, 98 268, 128 268 
+             L 384 268 
+             C 414 268, 432 274, 432 288 
+             L 424 308 
+             C 420 320, 404 326, 380 326 
+             L 132 326 
+             C 108 326, 92 320, 88 308 
+             Z" 
+          fill="url(#brimGrad)" />
+
+    <!-- Brim Underside Shadow -->
+    <path d="M 104 314 L 408 314 C 380 328, 330 332, 256 332 C 182 332, 132 328, 104 314 Z" 
+          fill="#451A03" opacity="0.75" />
+
+    <!-- Brim Rim Edge Specular Reflection -->
+    <path d="M 96 292 C 140 280, 372 280, 416 292" 
+          stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.9" />
+  </g>
+
+  <!-- Stylized "B" Monogram on Helmet Front -->
+  <g transform="translate(242, 174)">
+    <path d="M 0 0 L 16 0 C 23 0, 27 3.5, 27 9.5 C 27 13.5, 24.5 16.5, 19.5 17.5 C 25.5 18.5, 29 22.5, 29 29.5 C 29 36.5, 23.5 40, 16 40 L 0 40 Z 
+             M 7.5 7 L 7.5 15 L 15 15 C 18.5 15, 20 13.5, 20 11 C 20 8.5, 18.5 7, 15 7 Z 
+             M 7.5 22 L 7.5 33 L 15.5 33 C 19.5 33, 21.5 31, 21.5 27.5 C 21.5 24, 19.5 22, 15.5 22 Z" 
+          fill="#FFFFFF" />
+  </g>
+
+  <!-- BUILDCORE Foundation Core Blocks ("CORE") -->
+  <g transform="translate(0, 350)">
+    <!-- Upper Core Foundation Tier -->
+    <rect x="124" y="0" width="76" height="32" rx="7" fill="url(#coreGrad)" />
+    <rect x="218" y="0" width="76" height="32" rx="7" fill="#38BDF8" />
+    <rect x="312" y="0" width="76" height="32" rx="7" fill="url(#coreGrad)" />
+
+    <!-- Concrete Joint Highlights -->
+    <line x1="130" y1="3" x2="194" y2="3" stroke="#93C5FD" stroke-width="2" opacity="0.6" stroke-linecap="round" />
+    <line x1="224" y1="3" x2="288" y2="3" stroke="#E0F2FE" stroke-width="2" opacity="0.8" stroke-linecap="round" />
+    <line x1="318" y1="3" x2="382" y2="3" stroke="#93C5FD" stroke-width="2" opacity="0.6" stroke-linecap="round" />
+
+    <!-- Lower Core Foundation Tier (Interlocked) -->
+    <rect x="168" y="40" width="82" height="26" rx="6" fill="#1E40AF" />
+    <rect x="262" y="40" width="82" height="26" rx="6" fill="#1E40AF" />
+
+    <!-- Base Anchor Slab -->
+    <rect x="210" y="74" width="92" height="20" rx="5" fill="#2563EB" opacity="0.85" />
+  </g>
+</svg>
